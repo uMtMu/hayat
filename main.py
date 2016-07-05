@@ -1,3 +1,4 @@
+#! /usr/bin/python
 # -*- coding: utf-8 -*-
 from random import randint
 
@@ -14,9 +15,10 @@ class YasamAlani():
             YasamAlani.alan[x-1][y-1].append(birey)
         else:
             # Birey oluşturulması ise
-            x = x if x != None else randint(0, 9)
-            y = y if y != None else randint(0, 9)
-            isim = 'Birey ' + str(x) + str(y)
+            print YasamAlani.ALAN_X
+            x = x if x != None else randint(0, YasamAlani.ALAN_X - 1)
+            y = y if y != None else randint(0, YasamAlani.ALAN_Y - 1)
+            isim = 'B' + str(x) + str(y)
 
             YasamAlani.alan[x][y].append(Birey(isim, x, y))
 
@@ -26,6 +28,7 @@ class YasamAlani():
         for satir in YasamAlani.alan:
             for sutun in satir:
                 print sutun,
+                print 2 * "\t",
             print ''
         print ''
 
@@ -63,14 +66,14 @@ class Birey():
         return self.isim
 
 
-YasamAlani.yerlestir(2, 3)
+YasamAlani.yerlestir(0, 0)
 YasamAlani.yerlestir()
 YasamAlani.yerlestir()
 YasamAlani.yerlestir()
 
 YasamAlani.goruntule()
 
-YasamAlani.hucre(2, 3)[0].hareket_et(-1, -1)
+YasamAlani.hucre(0, 0)[0].hareket_et(1, 1)
 YasamAlani.goruntule()
 # YasamAlani.hucre(3, 4)[0].hareket_et(1, 1)
 # YasamAlani.goruntule()
